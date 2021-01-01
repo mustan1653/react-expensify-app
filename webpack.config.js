@@ -1,7 +1,14 @@
 //entry point -> output file
 const path = require('path');
+//const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+//const CSSMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
-module.exports = {
+
+module.exports = ({ MODE }, { mode }) => {
+  
+  const isProduction = MODE === 'production';
+
+  return {
     entry: './src/app.js',
     output: {
         path: path.join(__dirname, 'public'),
@@ -18,14 +25,29 @@ module.exports = {
           'style-loader',
           'css-loader',
           'sass-loader'
-        ]
-      }]  
+        ],
+       }
+      ]  
     },
-    devtool: 'eval-cheap-module-source-map',
+    // plugins:[
+    //   new MiniCssExtractPlugin({
+    //     filename: 'styles.css',
+    //   }),
+    // ],
+    // optimization: {
+    //   minimize: true,
+    //   minimizer: [
+    //     new CSSMinimizerPlugin({
+    //       sourceMap: true,
+    //     }),
+    //   ]
+    // },
+    
+    devtool: isProduction ? 'source-map' : 'inline-source-map',
     devServer: {
         contentBase: path.join(__dirname, 'public'),
-        port: 8081,
-        historyApiFallback: true
+        historyApiFallback: true,
         
-      }
+        }
+    };
 };

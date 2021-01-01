@@ -10,7 +10,7 @@ import './styles/styles.scss';
  
 
 const store = configureStore();
-
+console.log('test');
 //console.log(visibleExpenses);
 
 const  jsx =(
