@@ -11,7 +11,7 @@ module.exports = ({ MODE }, { mode }) => {
   return {
     entry: './src/app.js',
     output: {
-        path: path.join(__dirname, 'public'),
+        path: path.join(__dirname, 'public', 'dist'),
         filename: 'bundle.js'
     },
     module: {
@@ -47,7 +47,7 @@ module.exports = ({ MODE }, { mode }) => {
     devServer: {
         contentBase: path.join(__dirname, 'public'),
         historyApiFallback: true,
-        
+        publicPath: '/dist/'
         }
     };
 };
