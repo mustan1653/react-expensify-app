@@ -7,18 +7,18 @@ import { Provider } from 'react-redux';
 import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
- 
+import db from './firebase/firebase';
+//import './playground/promises';
 
 const store = configureStore();
 console.log('test');
 //console.log(visibleExpenses);
 
-const  jsx =(
+const jsx = (
    <Provider store={store}>
-        <AppRouter />
+      <AppRouter />
    </Provider>
 );
 
 ReactDOM.render(jsx, document.getElementById('app'));
 
-  
