@@ -1,34 +1,39 @@
 import firebase from 'firebase';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBvR5GZSpMe34rLe1lTb7cUQOzyZiKPrO4",
-    authDomain: "expensify-203d4.firebaseapp.com",
-    databaseURL: "https://expensify-203d4-default-rtdb.firebaseio.com",
-    projectId: "expensify-203d4",
-    storageBucket: "expensify-203d4.appspot.com",
-    messagingSenderId: "237266807098",
-    appId: "1:237266807098:web:df4c4715a481f3a3e08803",
-    measurementId: "G-6MZLDR4SMN"
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.FIREBASE_DATABASE_URL,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+    // appId: "1:237266807098:web:df4c4715a481f3a3e08803",
+    // measurementId: "G-6MZLDR4SMN"
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.database();
 
-//child removed
-db.ref('expenses').on('child_removed', (snapshot) => {
-    console.log(snapshot.key, snapshot.val());
-});
 
-//child changed
-db.ref('expenses').on('child_changed', (snapshot) => {
-    console.log(snapshot.key, snapshot.val());
-});
+export default db;
 
 
-//child added
-db.ref('expenses').on('child_added', (snapshot) => {
-    console.log(snapshot.key, snapshot.val());
-});
+
+// //child removed
+// db.ref('expenses').on('child_removed', (snapshot) => {
+//     console.log(snapshot.key, snapshot.val());
+// });
+
+// //child changed
+// db.ref('expenses').on('child_changed', (snapshot) => {
+//     console.log(snapshot.key, snapshot.val());
+// });
+
+
+// //child added
+// db.ref('expenses').on('child_added', (snapshot) => {
+//     console.log(snapshot.key, snapshot.val());
+// });
 
 // db.ref('expenses')
 //     .on('value', (snapshot) => {
@@ -185,6 +190,3 @@ db.ref('expenses').on('child_added', (snapshot) => {
 //     }).catch((e) => {
 //         cosnoel.log('Data was not removed', e);
 //     })
-
-
-export default db;

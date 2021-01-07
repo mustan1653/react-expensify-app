@@ -5,9 +5,10 @@ import configureStore from './store/configureStore';
 import { addExpense } from './actions/expenses';
 import { Provider } from 'react-redux';
 import getVisibleExpenses from './selectors/expenses';
+import 'react-dates/lib/css/_datepicker.css';
+
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
-import db from './firebase/firebase';
 //import './playground/promises';
 
 const store = configureStore();
