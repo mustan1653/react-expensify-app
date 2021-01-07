@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import db from '../firebase/firebase';
 
-ADD_EXPENSE
+
 export const addExpense = (expense) => ({
     type: 'ADD_EXPENSE',
     expense
