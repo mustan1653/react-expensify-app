@@ -7,15 +7,18 @@ const firebaseConfig = {
     projectId: process.env.FIREBASE_PROJECT_ID,
     storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
     messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-    // appId: "1:237266807098:web:df4c4715a481f3a3e08803",
-    // measurementId: "G-6MZLDR4SMN"
+    appId: "1:237266807098:web:df4c4715a481f3a3e08803",
+    measurementId: "G-6MZLDR4SMN"
 };
+
+
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.database();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
 
-export default db;
+export { firebase, googleAuthProvider, db as default };
 
 
 
