@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import getVisibleExpenses from './selectors/expenses';
 import { firebase } from './firebase/firebase';
 import { login, logout } from './actions/auth';
-import LoadingPage from './components/loadingPage';
+import LoadingPage from './components/LoadingPage';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
