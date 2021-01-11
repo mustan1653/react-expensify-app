@@ -15,7 +15,7 @@ module.exports = ({ MODE }, { mode }) => {
   const isProduction = MODE === 'production';
 
   return {
-    entry: './src/app.js',
+    entry: ['babel-polyfill', './src/app.js'],
     output: {
       path: path.join(__dirname, 'public', 'dist'),
       filename: 'bundle.js'
@@ -32,6 +32,9 @@ module.exports = ({ MODE }, { mode }) => {
           'css-loader',
           'sass-loader'
         ],
+      }, {
+        test: /\.(gif|svg|jpg|png)$/,
+        loader: "file-loader",
       }
       ]
     },
